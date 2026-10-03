@@ -240,7 +240,7 @@ def scan_w1(path, since):
     if not path:
         return {"read": False}
     data = load_tool_result(path).get("data", [])
-    tools, denies, grants, reports, newest = 0, {}, 0, 0, since
+    tools, denies, grants, reports, newest, sends_amp = 0, {}, 0, 0, since, 0
     for e in data:
         at = e.get("created_at", "")
         if since and at <= since:
@@ -253,11 +253,15 @@ def scan_w1(path, since):
             denies[r] = denies.get(r, 0) + 1
         grants += len(re.findall(r"guard (?:ALLOW|PERMIT)", blob))
         reports += len(re.findall(r"amp/issues/(?:1|14)#issuecomment", blob))
+        # BD-267 step 3: a W1 send_message that reaches AMP also counts as success.
+        if "send_message" in blob and "session_01GSGTDQF8LUeGv8NzcBPhCG" in blob and '"tool_use"' in blob:
+            sends_amp += 1
     fresh = [e for e in data if not since or e.get("created_at", "") > since]
     turns = sum(1 for e in fresh if "user" in e or "assistant" in e or "result" in e)
     return {"read": True, "since": since, "new_events": len(fresh), "turn_events": turns,
             "infra_only": len(fresh) - turns,
-            "tool_calls": tools, "denies": denies, "grants": grants, "report_links": reports, "newest": newest}
+            "tool_calls": tools, "denies": denies, "grants": grants, "report_links": reports,
+            "send_message_to_amp": sends_amp, "newest": newest}
 
 
 # ---------- A9: HUMAN_QUEUE ----------
