@@ -1,9 +1,9 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-03 18:20 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-03 18:22 UTC
 
 | Track | Next step | Owner | Waiting on | ETA (est.) | Quota |
 |---|---|---|---|---|---|
 | T1 W1–AMP | CMD-GR7 rev 3 report (#15) | GR | GR at work (session running 18:12) | not stated | none |
-| T1 | CMD-K14 report (#11) | SDK | full mutation run (18/123 at 17:44); work committed `8131a2b` (rlo-sdk 0.8.1) | ~19:00 | none |
+| T1 | CMD-K14 S2 (incremental cache) | SDK | CMD-SEN1 verdict (K14 S1 success, BD-266, rlo 0.8.1 `8131a2b` integrated) | after SEN1 | none |
 | T1 | CMD-SEN1 report (#3) | Sensor | mutation harness re-run (session running 18:12) | ~19:00 | none |
 | T1 | amp-guard move into HUMAN_QUEUE | baseline | GR7 success | after GR7 verdict | — |
 | T1 | P5 W1 observation | AO | — (read only) | every round | — |

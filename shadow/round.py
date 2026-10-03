@@ -79,6 +79,10 @@ def kind_of(body):
             or "## [baseline" in body[:600]
             or schema in ("directive/1", "directive/2", "review/1")):
         return "baseline", schema
+    # BD-263: an AO directive or note on a session channel ("[AO → X]", from: AO)
+    # answers that channel's reports like a baseline post (BD-253 'answered').
+    if re.match(r"(?:## )?\[AO →", head) or (m and '"from": "AO"' in m.group(1) and schema == "directive/2"):
+        return "baseline", schema
     if "<AO>" in head[:40] or (m and '"from": "AO"' in m.group(1)):
         return "ao", schema
     if schema in ("report/1", "report/2"):
