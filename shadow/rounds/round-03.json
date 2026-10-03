@@ -1,0 +1,361 @@
+{
+ "schema": "ao-status/1",
+ "round": 3,
+ "mode": "shadow",
+ "at": "2026-10-03T16:40Z",
+ "class": "Operator(Hub)",
+ "P1_watch": {
+  "working": [
+   {
+    "name": "GA",
+    "map": "title",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T16:40",
+    "status_category": "review_ready",
+    "detail": "awaiting K12 rev 3 for parallel tool steps; 406 tests pass",
+    "needs_action": ""
+   },
+   {
+    "name": "SDK",
+    "map": "title",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T16:40",
+    "status_category": null,
+    "detail": "",
+    "needs_action": ""
+   },
+   {
+    "name": "baseline",
+    "map": "doc",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T16:40",
+    "status_category": "review_ready",
+    "detail": "found W1 root cause (stale health state); chose fix B; K13 in progress",
+    "needs_action": ""
+   },
+   {
+    "name": "WUG",
+    "map": "doc",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T16:40",
+    "status_category": null,
+    "detail": "",
+    "needs_action": ""
+   }
+  ],
+  "need_input": [
+   {
+    "name": "W1",
+    "map": "title",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-03T15:13",
+    "status_category": "need_input",
+    "detail": "Cannot merge origin/main; git permission denied",
+    "needs_action": "check git credentials or SSH key setup"
+   },
+   {
+    "name": "GMG",
+    "map": "doc",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-03T16:32",
+    "status_category": "need_input",
+    "detail": "awaiting --check output + CMD-WUG1 ownership",
+    "needs_action": "run `gentlemonster-agy --check` and paste the last line; confirm CMD-WUG1 ownership (1=yours, 2=WUG's)"
+   },
+   {
+    "name": "Action",
+    "map": "title",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-02T16:28",
+    "status_category": "need_input",
+    "detail": "A8 passed; baseline integrated c27840a; awaiting next instruction",
+    "needs_action": "next instruction from baseline"
+   },
+   {
+    "name": "Telemetry",
+    "map": "title",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-02T17:04",
+    "status_category": "need_input",
+    "detail": "baseline passed CMD-T19; SDK hook fix accepted; awaiting next instruction",
+    "needs_action": "provide next instruction or approval to proceed"
+   }
+  ],
+  "blocked_words": [
+   {
+    "name": "Guard",
+    "map": "title",
+    "bucket": "COMPLETED",
+    "updated": "2026-10-02T15:25",
+    "status_category": "completed",
+    "detail": "G6 passed baseline review (be871b9); guard clean",
+    "needs_action": ""
+   }
+  ],
+  "idle": [
+   {
+    "name": "GR",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-03T16:18"
+   },
+   {
+    "name": "AMP",
+    "bucket": "COMPLETED",
+    "updated": "2026-10-03T16:35"
+   },
+   {
+    "name": "Health",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-02T15:09"
+   },
+   {
+    "name": "DC",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-02T17:07"
+   },
+   {
+    "name": "Sensor",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-02T16:42"
+   }
+  ],
+  "unknown_sessions_active": []
+ },
+ "P2_collect": {
+  "pending_reports": [
+   {
+    "issue": 17,
+    "ref": "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971141887",
+    "at": "2026-10-03T16:35:42Z",
+    "waiting_min": 5,
+    "ids": [
+     "CMD-WUG1"
+    ],
+    "first_line": "## [WUG → baseline] CMD-WUG1 rev 3: early S5 (step table)",
+    "head": "hard",
+    "problems": [
+     "[hard] $: no leading ```ga fenced JSON head"
+    ]
+   },
+   {
+    "issue": 16,
+    "ref": "https://github.com/cogito5170/baseline/issues/16#issuecomment-5971040373",
+    "at": "2026-10-03T16:23:04Z",
+    "waiting_min": 18,
+    "ids": [
+     "CMD-GMG7",
+     "CMD-WUG1"
+    ],
+    "first_line": "[GMG] I have paused CMD-WUG1 work, as you relayed. Nothing was pushed to well_used_gemini:",
+    "head": "missing"
+   },
+   {
+    "issue": 14,
+    "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5971045866",
+    "at": "2026-10-03T16:23:46Z",
+    "waiting_min": 17,
+    "ids": [
+     "CMD-AMP1"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "soft": []
+   },
+   {
+    "issue": 12,
+    "ref": "https://github.com/cogito5170/baseline/issues/12#issuecomment-5971137549",
+    "at": "2026-10-03T16:35:11Z",
+    "waiting_min": 6,
+    "ids": [
+     "CMD-GA21"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "soft": [
+     "Evidence: claims carry no mark (verified / partially verified / not verified / assumption / blocked)"
+    ]
+   }
+  ],
+  "answered_without_id_match": [
+   {
+    "issue": 16,
+    "ref": "https://github.com/cogito5170/baseline/issues/16#issuecomment-5968372967",
+    "at": "2026-10-03T10:39:24Z",
+    "waiting_min": 361,
+    "ids": [],
+    "first_line": "```ga",
+    "head": "hard",
+    "problems": [
+     "[hard] $.items: [0] id must be D<number>"
+    ]
+   },
+   {
+    "issue": 16,
+    "ref": "https://github.com/cogito5170/baseline/issues/16#issuecomment-5968600411",
+    "at": "2026-10-03T11:11:22Z",
+    "waiting_min": 329,
+    "ids": [],
+    "first_line": "```ga",
+    "head": "hard",
+    "problems": [
+     "[hard] $.items: [0] id must be D<number>"
+    ]
+   },
+   {
+    "issue": 15,
+    "ref": "https://github.com/cogito5170/baseline/issues/15#issuecomment-5967210988",
+    "at": "2026-10-03T08:32:09Z",
+    "waiting_min": 489,
+    "ids": [],
+    "first_line": "## [GR → baseline] 머리 꼴 알림(BD-173) 수신",
+    "head": "missing"
+   },
+   {
+    "issue": 14,
+    "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5968346189",
+    "at": "2026-10-03T10:35:35Z",
+    "waiting_min": 365,
+    "ids": [
+     "CMD-AMP1"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "soft": []
+   },
+   {
+    "issue": 14,
+    "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5968614096",
+    "at": "2026-10-03T11:13:24Z",
+    "waiting_min": 327,
+    "ids": [
+     "CMD-AMP1"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "soft": []
+   },
+   {
+    "issue": 14,
+    "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5969049195",
+    "at": "2026-10-03T12:13:44Z",
+    "waiting_min": 267,
+    "ids": [
+     "CMD-AMP1"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "soft": []
+   },
+   {
+    "issue": 14,
+    "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5969402405",
+    "at": "2026-10-03T12:59:38Z",
+    "waiting_min": 221,
+    "ids": [
+     "CMD-AMP1"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "soft": []
+   },
+   {
+    "issue": 14,
+    "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5970870115",
+    "at": "2026-10-03T16:04:02Z",
+    "waiting_min": 37,
+    "ids": [
+     "CMD-AMP1"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "soft": []
+   },
+   {
+    "issue": 14,
+    "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5970901691",
+    "at": "2026-10-03T16:07:39Z",
+    "waiting_min": 33,
+    "ids": [
+     "CMD-AMP1"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "soft": []
+   },
+   {
+    "issue": 2,
+    "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5945675444",
+    "at": "2026-10-02T04:35:53Z",
+    "waiting_min": 2165,
+    "ids": [],
+    "first_line": "[MS] F2 결과 -- 사전등록 판정으로는 F2 를 확인하지 못함 · 지연은 늘었다 · DROP · DEFER 는 원인이 아니다",
+    "head": "missing"
+   },
+   {
+    "issue": 2,
+    "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5946007487",
+    "at": "2026-10-02T05:13:39Z",
+    "waiting_min": 2127,
+    "ids": [],
+    "first_line": "[MS] F2b 선행조사 -- 현상은 이미 보고됨, 기여는 짝지은 층화로 좁아진다 · 과업 묶음 3 을 짓기 전에 판단을 구함",
+    "head": "missing"
+   },
+   {
+    "issue": 2,
+    "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5946179573",
+    "at": "2026-10-02T05:32:33Z",
+    "waiting_min": 2108,
+    "ids": [],
+    "first_line": "[MS] F2b 를 지었다 -- 돌릴 준비 끝(실행은 사용자 결정)",
+    "head": "missing"
+   },
+   {
+    "issue": 2,
+    "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5950007493",
+    "at": "2026-10-02T10:09:43Z",
+    "waiting_min": 1831,
+    "ids": [],
+    "first_line": "## [MS] BD-94 반영 — F2b 교훈 절 (문서만)",
+    "head": "missing"
+   },
+   {
+    "issue": 2,
+    "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5953288187",
+    "at": "2026-10-02T13:20:32Z",
+    "waiting_min": 1640,
+    "ids": [
+     "CMD-M19"
+    ],
+    "first_line": "## [MS] CMD-M19 — Guard shadow 시험이 Guard 판정 값에 묶이지 않게",
+    "head": "missing"
+   }
+  ],
+  "reports_scanned": 154
+ },
+ "P3_header": "per item in P2_collect (head: ok | hard | missing)",
+ "P5_observe_w1": {
+  "read": true,
+  "since": "2026-10-03T16:36:20.385137Z",
+  "new_events": 0,
+  "turn_events": 0,
+  "infra_only": 0,
+  "tool_calls": 0,
+  "denies": {},
+  "grants": 0,
+  "report_links": 0,
+  "newest": "2026-10-03T16:36:20.385137Z"
+ },
+ "P6_human_queue": {
+  "baseline_head": "fcd67e4",
+  "open": [
+   {
+    "q": "Q1",
+    "kind": "E",
+    "task": "기존 환경은 Network access 를 바꿀 수 없음(사용자 확인: Custom 은 만들 때만) → **새 환경 하나 만들기**: 이름 `gmg-net`, Network access = Custom, Allowe"
+   }
+  ]
+ },
+ "not_covered": [
+  "amp#1 (issues API not attached to AO; read-only git only)"
+ ]
+}
