@@ -1,5 +1,5 @@
-"""AO P1 shadow round (BD-243): A1 session watch, A2 pending-report queue,
-A3 header pre-check, A4 W1 read-only count, A9 HUMAN_QUEUE done-check.
+"""AO P1 shadow round (BD-243), Operator(Hub) per HUB_CLASSES.md (BD-244):
+P1 watch, P2 collect, P3 header pre-check, P5 W1 observe (read-only), P6 human-queue check.
 
 Read-only. Writes only into this repo (shadow/rounds/, shadow/state.json).
 Inputs that only MCP tools can fetch are passed as files:
@@ -240,12 +240,12 @@ def main():
 
     status = {
         "schema": "ao-status/1", "round": a.round, "mode": "shadow", "at": now.strftime("%Y-%m-%dT%H:%MZ"),
-        "sessions": sessions,
-        "pending_reports": pending,
-        "answered_without_id_match": maybe,
-        "reports_scanned": checked,
-        "w1": w1,
-        "human_queue": {"baseline_head": hq_sha, "open": hq},
+        "class": "Operator(Hub)",
+        "P1_watch": sessions,
+        "P2_collect": {"pending_reports": pending, "answered_without_id_match": maybe, "reports_scanned": checked},
+        "P3_header": "per item in P2_collect (head: ok | hard | missing)",
+        "P5_observe_w1": w1,
+        "P6_human_queue": {"baseline_head": hq_sha, "open": hq},
         "not_covered": ["amp#1 (issues API not attached to AO; read-only git only)"],
     }
     out = ROOT / "rounds" / f"round-{a.round:02d}.json"
