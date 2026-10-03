@@ -90,15 +90,29 @@ def kind_of(body):
 
 
 def header_check(body):
-    if not GA_FENCE.search(body):
+    """P3. CMD-AO1 S8: a relay post ('[X → baseline]', posted by baseline on a
+    session's behalf) carries the ``` ga block anywhere, so validate the first
+    embedded block wherever it is."""
+    m = GA_FENCE.search(body)
+    if not m:
         return {"head": "missing"}
     try:
-        _, _, soft = forms.parse_post(body)
-        return {"head": "ok", "soft": [f"{p.path}: {p.message}" for p in soft]}
-    except forms.FormError as e:
-        return {"head": "hard", "problems": [str(e)[:300]]}
-    except Exception as e:  # parser bug must not stop the round
+        doc = json.loads(m.group(1))
+    except ValueError as e:
+        return {"head": "hard", "problems": [f"unparsable ga block: {e}"[:200]]}
+    try:
+        probs = forms.validate(doc)
+    except Exception as e:  # validator bug must not stop the round
         return {"head": "error", "problems": [repr(e)[:200]]}
+    hard = [f"{x.path}: {x.message}" for x in probs if x.strength == "hard"]
+    soft = [f"{x.path}: {x.message}" for x in probs if x.strength != "hard"]
+    leading = body.lstrip().startswith("```ga")
+    out = {"head": "hard" if hard else "ok", "embedded": not leading}
+    if hard:
+        out["problems"] = hard
+    if soft:
+        out["soft"] = soft
+    return out
 
 
 def handled_ids(body):
@@ -135,17 +149,23 @@ def scan_issues(now):
             checked += 1
             ids = handled_ids(p["body"])
             later = [q for q in posts[i + 1:] if q["kind"] == "baseline"]
+            # CMD-AO1 S8: answered only by a later baseline comment in the same
+            # channel that links or quotes the report. DECISION_LOG does not count.
+            quotes = [ln.strip() for ln in p["body"].splitlines() if len(ln.strip()) >= 60]
             matched = [q for q in later
                        if p["id"] in q["body"] or p["url"] in q["body"]
-                       or any(re.search(r"(?<![A-Za-z])(?:CMD-)?" + re.escape(x.removeprefix("CMD-")) + r"(?!\d)",
-                                        q["body"]) for x in ids)]
+                       or any(ln in q["body"] for ln in quotes)]
+            by_id = [q for q in later
+                     if any(re.search(r"(?<![A-Za-z])(?:CMD-)?" + re.escape(x.removeprefix("CMD-")) + r"(?!\\d)",
+                                      q["body"]) for x in ids)]
             if matched:
                 continue
             waited = (now - dt.datetime.fromisoformat(p["at"].replace("Z", "+00:00"))).total_seconds() / 60
             first = p["body"].lstrip().splitlines()[0][:90] if p["body"].strip() else ""
             item = {"issue": iss["number"], "ref": p["url"], "at": p["at"], "waiting_min": round(waited),
                     "ids": sorted(ids), "first_line": first, **header_check(p["body"])}
-            (maybe if later else pending).append(item)
+            item["named_by_later_baseline_post"] = bool(by_id)
+            pending.append(item)
     return pending, maybe, checked
 
 
@@ -242,12 +262,16 @@ def main():
         "schema": "ao-status/1", "round": a.round, "mode": "shadow", "at": now.strftime("%Y-%m-%dT%H:%MZ"),
         "class": "Operator(Hub)",
         "P1_watch": sessions,
-        "P2_collect": {"pending_reports": pending, "answered_without_id_match": maybe, "reports_scanned": checked},
+        "P2_collect": {"pending_reports": pending, "reports_scanned": checked, "rule": "CMD-AO1 S8"},
         "P3_header": "per item in P2_collect (head: ok | hard | missing)",
         "P5_observe_w1": w1,
         "P6_human_queue": {"baseline_head": hq_sha, "open": hq},
-        "not_covered": ["amp#1 (issues API not attached to AO; read-only git only)"],
     }
+    prev_p = ROOT / "rounds" / f"round-{a.round - 1:02d}.json"
+    prev = json.loads(prev_p.read_text()) if prev_p.exists() else None
+    post, notify = to_report2(status, prev)
+    (ROOT / "rounds" / f"post-{a.round:02d}.md").write_text(post + "\n")
+    status["needs_notify"] = notify
     out = ROOT / "rounds" / f"round-{a.round:02d}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(status, ensure_ascii=False, indent=1) + "\n")
@@ -256,6 +280,56 @@ def main():
     state["last_round"] = a.round
     state_p.write_text(json.dumps(state, indent=1) + "\n")
     json.dump(status, sys.stdout, ensure_ascii=False, indent=1)
+
+
+
+# ---------- CMD-AO1 S6/S7: the post is a report/2 ----------
+
+def to_report2(status, prev=None, rev_seen=1):
+    """Wrap ao-status in report/2 (S6). Return (text, needs_notify).
+    A quiet round (nothing changed since prev) is one line (S7)."""
+    p1, p2 = status["P1_watch"], status["P2_collect"]
+    pend = p2["pending_reports"]
+    unnamed = [x for x in pend if not x.get("named_by_later_baseline_post")]
+    hard = [x for x in unnamed if x.get("head") == "hard"]
+    w1, hq = status["P5_observe_w1"], status["P6_human_queue"]
+    sig = {"need_input": sorted(r["name"] for r in p1["need_input"]),
+           "pending": sorted(x["ref"] for x in pend), "hard": sorted(x["ref"] for x in hard),
+           "w1": w1.get("turn_events", 0), "hq": sorted(q["q"] for q in hq["open"])}
+    status["signature"] = sig
+    if prev and prev.get("signature") == sig:
+        return f"<AO> round {status['round']}: no change", False
+    over30 = [x for x in unnamed if x["waiting_min"] > 30]
+    head = {
+        "schema": "report/2", "from": "AO",
+        "handled": [{"id": "CMD-AO1", "rev_seen": rev_seen, "status": "done"}],
+        "items": [
+            {"id": "D1", "state": "met", "evidence": [f"P1 watch: need_input {sig['need_input']}"]},
+            {"id": "D2", "state": "met", "evidence": [f"P2 collect (S8): {len(pend)} not linked/quoted, {len(unnamed)} also not named"]},
+            {"id": "D3", "state": "met", "evidence": [f"P3 header: {len(hard)} hard among unnamed pending"]},
+            {"id": "D4", "state": "met", "evidence": [f"P5 W1: {w1.get('turn_events', 0)} turns since {w1.get('since')}"]},
+            {"id": "D5", "state": "met", "evidence": [f"P6 human queue open {sig['hq']} at {hq['baseline_head']}"]},
+        ],
+        "results": [
+            {"name": "reports_scanned", "value": p2["reports_scanned"], "unit": "reports", "evidence": f"round-{status['round']:02d}.json"},
+            {"name": "pending_s8", "value": len(pend), "unit": "reports", "evidence": "linked/quoted rule"},
+            {"name": "pending_unnamed", "value": len(unnamed), "unit": "reports", "evidence": "not linked, quoted or named"},
+            {"name": "pending_over_30min_unnamed", "value": len(over30), "unit": "reports", "evidence": "S5 notify trigger"},
+        ],
+    }
+    probs = forms.validate(head)
+    assert not forms.hard(probs), probs
+    lines = [f"## <AO> round {status['round']} (shadow, Operator) — " + ("needs a look" if over30 else "no reply needed"), ""]
+    if unnamed:
+        lines.append("**Not linked, quoted or named by a later baseline post:**")
+        lines += [f"- #{x['issue']} {x['at'][5:16]} ({x['waiting_min']} min) head={x['head']} {x['ref']}" for x in unnamed[:12]]
+    if hard:
+        lines.append("**P3 hard heads among them:**")
+        lines += [f"- {x['ref']}: {'; '.join(x.get('problems', []))[:160]}" for x in hard[:8]]
+    lines.append(f"**P1** need_input: {', '.join(sig['need_input']) or 'none'} · **P5** W1 turns: {sig['w1']} · **P6** open: {', '.join(sig['hq']) or 'none'}")
+    body = "```ga\n" + json.dumps(head, ensure_ascii=False) + "\n```\n" + "\n".join(lines)
+    body += "\n\n---\n_Generated by [Claude Code](https://claude.ai/code)_"
+    return body, bool(over30)
 
 
 if __name__ == "__main__":
