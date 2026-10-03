@@ -1,0 +1,219 @@
+{
+ "schema": "ao-status/1",
+ "round": 5,
+ "mode": "shadow",
+ "at": "2026-10-03T20:31Z",
+ "class": "Operator(Hub)",
+ "P1_watch": {
+  "working": [
+   {
+    "name": "GR",
+    "map": "title",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T20:31",
+    "status_category": null,
+    "detail": "",
+    "needs_action": ""
+   }
+  ],
+  "need_input": [
+   {
+    "name": "W1",
+    "map": "title",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-03T16:44",
+    "status_category": "need_input",
+    "detail": "guard denied AMP probe reply; w1/work unmerged",
+    "needs_action": "merge origin/main into w1/work to upgrade guard v1→v2, then retry AMP probe"
+   },
+   {
+    "name": "GMG",
+    "map": "doc",
+    "bucket": "FAILED",
+    "updated": "2026-10-03T18:24",
+    "status_category": "failed",
+    "detail": "You've hit your session limit · resets 8:10pm (UTC)",
+    "needs_action": ""
+   },
+   {
+    "name": "AMP",
+    "map": "doc",
+    "bucket": "FAILED",
+    "updated": "2026-10-03T18:25",
+    "status_category": "failed",
+    "detail": "You've hit your session limit · resets 8:10pm (UTC)",
+    "needs_action": ""
+   },
+   {
+    "name": "Action",
+    "map": "title",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-02T16:28",
+    "status_category": "need_input",
+    "detail": "A8 passed; baseline integrated c27840a; awaiting next instruction",
+    "needs_action": "next instruction from baseline"
+   },
+   {
+    "name": "baseline",
+    "map": "doc",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-03T20:31",
+    "status_category": "need_input",
+    "detail": "GR7/SEN1 verified; awaiting Q8 approval in AMP chat",
+    "needs_action": "Leave comment in AMP chat: `amp main 과 w1/work 의 ops/rlo/install.sh PIN 을 rlo-SDK 8131a2b(0.8.1)로 올려도 된다`"
+   }
+  ],
+  "blocked_words": [
+   {
+    "name": "Guard",
+    "map": "title",
+    "bucket": "COMPLETED",
+    "updated": "2026-10-02T15:25",
+    "status_category": "completed",
+    "detail": "G6 passed baseline review (be871b9); guard clean",
+    "needs_action": ""
+   }
+  ],
+  "idle": [
+   {
+    "name": "GA",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-03T18:12"
+   },
+   {
+    "name": "SDK",
+    "bucket": "COMPLETED",
+    "updated": "2026-10-03T18:21"
+   },
+   {
+    "name": "Health",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-02T15:09"
+   },
+   {
+    "name": "Telemetry",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-03T17:30"
+   },
+   {
+    "name": "DC",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-02T17:07"
+   },
+   {
+    "name": "Sensor",
+    "bucket": "COMPLETED",
+    "updated": "2026-10-03T20:31"
+   }
+  ],
+  "unknown_sessions_active": []
+ },
+ "P2_collect": {
+  "pending_reports": [
+   {
+    "issue": 17,
+    "ref": "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971674744",
+    "at": "2026-10-03T17:30:38Z",
+    "waiting_min": 181,
+    "ids": [
+     "CMD-WUG1"
+    ],
+    "first_line": "## [WUG → baseline] CMD-WUG1 rev 3: report (A done; B partly blocked)",
+    "head": "hard",
+    "embedded": true,
+    "problems": [
+     "$.handled: is required",
+     "$.id: unknown field",
+     "$.rev: unknown field"
+    ],
+    "named_by_later_baseline_post": false
+   },
+   {
+    "issue": 17,
+    "ref": "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971695044",
+    "at": "2026-10-03T17:33:06Z",
+    "waiting_min": 179,
+    "ids": [
+     "CMD-WUG1"
+    ],
+    "first_line": "## [WUG → baseline] CMD-WUG1 rev 3: corrected header, normalized by baseline (BD-260)",
+    "head": "ok",
+    "embedded": true,
+    "named_by_later_baseline_post": false
+   },
+   {
+    "issue": 16,
+    "ref": "https://github.com/cogito5170/baseline/issues/16#issuecomment-5972122079",
+    "at": "2026-10-03T18:21:35Z",
+    "waiting_min": 130,
+    "ids": [
+     "CMD-GMG8"
+    ],
+    "first_line": "```ga",
+    "head": "ok",
+    "embedded": false,
+    "named_by_later_baseline_post": false
+   }
+  ],
+  "reports_scanned": 171,
+  "rule": "CMD-AO1 rev 2 S8"
+ },
+ "P3_header": "per item in P2_collect (head: ok | hard | missing)",
+ "P5_observe_w1": {
+  "read": true,
+  "since": "2026-10-03T16:44:47.696329Z",
+  "new_events": 1,
+  "turn_events": 0,
+  "infra_only": 1,
+  "tool_calls": 0,
+  "denies": {},
+  "grants": 0,
+  "report_links": 0,
+  "send_message_to_amp": 0,
+  "newest": "2026-10-03T18:20:55.385924Z"
+ },
+ "P6_human_queue": {
+  "baseline_head": "525a6ee",
+  "open": [
+   {
+    "q": "Q6",
+    "kind": "D",
+    "task": "WUG 가 다른 세션을 거친 허락은 받지 않음(설계대로) — **WUG 대화창에 직접** 한 줄: 'ga-sdk 를 확장 venv 에 설치해도 된다'"
+   },
+   {
+    "q": "Q7",
+    "kind": "P",
+    "task": "GA23 의 agy 실제 모양 확인 — Mac 작업 폴더에서 #12 댓글 'D2' 의 8 개 명령을 돌리고 출력 그대로를 GMG 대화창에 붙여넣기(토큰은 절대 붙이지 않음, 'Use AI Credits' 에는 절대 "
+   },
+   {
+    "q": "Q8",
+    "kind": "G",
+    "task": "**W1 단절 풀기(GR7 기다리지 않음, BD-267)** — ① AMP 대화창에 한 줄: 'amp main 과 w1/work 의 ops/rlo/install.sh PIN 을 rlo-SDK 8131a2b(0.8.1"
+   }
+  ]
+ },
+ "signature": {
+  "need_input": [
+   "AMP",
+   "Action",
+   "GMG",
+   "W1",
+   "baseline"
+  ],
+  "pending": [
+   "https://github.com/cogito5170/baseline/issues/16#issuecomment-5972122079",
+   "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971674744",
+   "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971695044"
+  ],
+  "hard": [
+   "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971674744"
+  ],
+  "w1": 0,
+  "hq": [
+   "Q6",
+   "Q7",
+   "Q8"
+  ]
+ },
+ "needs_notify": true
+}
