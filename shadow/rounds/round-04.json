@@ -1,0 +1,211 @@
+{
+ "schema": "ao-status/1",
+ "round": 4,
+ "mode": "shadow",
+ "at": "2026-10-03T17:40Z",
+ "class": "Operator(Hub)",
+ "P1_watch": {
+  "working": [
+   {
+    "name": "GR",
+    "map": "title",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T17:40",
+    "status_category": null,
+    "detail": "",
+    "needs_action": ""
+   },
+   {
+    "name": "GMG",
+    "map": "doc",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T17:40",
+    "status_category": null,
+    "detail": "",
+    "needs_action": ""
+   },
+   {
+    "name": "GA",
+    "map": "title",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T17:40",
+    "status_category": "review_ready",
+    "detail": "GA24 done (Google API key patterns); GA23 blocked on baseline Antigravity facts",
+    "needs_action": ""
+   },
+   {
+    "name": "SDK",
+    "map": "title",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T17:40",
+    "status_category": null,
+    "detail": "",
+    "needs_action": ""
+   },
+   {
+    "name": "Sensor",
+    "map": "title",
+    "bucket": "WORKING",
+    "updated": "2026-10-03T17:39",
+    "status_category": null,
+    "detail": "",
+    "needs_action": ""
+   }
+  ],
+  "need_input": [
+   {
+    "name": "W1",
+    "map": "title",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-03T16:44",
+    "status_category": "need_input",
+    "detail": "guard denied AMP probe reply; w1/work unmerged",
+    "needs_action": "merge origin/main into w1/work to upgrade guard v1→v2, then retry AMP probe"
+   },
+   {
+    "name": "Action",
+    "map": "title",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-02T16:28",
+    "status_category": "need_input",
+    "detail": "A8 passed; baseline integrated c27840a; awaiting next instruction",
+    "needs_action": "next instruction from baseline"
+   },
+   {
+    "name": "baseline",
+    "map": "doc",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-03T17:37",
+    "status_category": "need_input",
+    "detail": "Q6: awaiting ga-sdk install approval in WUG chat",
+    "needs_action": "approve ga-sdk install in WUG chat"
+   },
+   {
+    "name": "WUG",
+    "map": "doc",
+    "bucket": "BLOCKED",
+    "updated": "2026-10-03T17:33",
+    "status_category": "need_input",
+    "detail": "baseline#17 CMD-WUG1 rev 3: D1 met, D2/D3/D4 blocked on ga-sdk install + API key",
+    "needs_action": "approve installing ga-sdk from cogito5170/ga-SDK@98cbd26; provide API key for D3"
+   }
+  ],
+  "blocked_words": [
+   {
+    "name": "Guard",
+    "map": "title",
+    "bucket": "COMPLETED",
+    "updated": "2026-10-02T15:25",
+    "status_category": "completed",
+    "detail": "G6 passed baseline review (be871b9); guard clean",
+    "needs_action": ""
+   }
+  ],
+  "idle": [
+   {
+    "name": "AMP",
+    "bucket": "COMPLETED",
+    "updated": "2026-10-03T16:48"
+   },
+   {
+    "name": "Health",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-02T15:09"
+   },
+   {
+    "name": "Telemetry",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-03T17:30"
+   },
+   {
+    "name": "DC",
+    "bucket": "REVIEW_READY",
+    "updated": "2026-10-02T17:07"
+   }
+  ],
+  "unknown_sessions_active": []
+ },
+ "P2_collect": {
+  "pending_reports": [
+   {
+    "issue": 17,
+    "ref": "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971674744",
+    "at": "2026-10-03T17:30:38Z",
+    "waiting_min": 10,
+    "ids": [
+     "CMD-WUG1"
+    ],
+    "first_line": "## [WUG → baseline] CMD-WUG1 rev 3: report (A done; B partly blocked)",
+    "head": "hard",
+    "embedded": true,
+    "problems": [
+     "$.handled: is required",
+     "$.id: unknown field",
+     "$.rev: unknown field"
+    ],
+    "named_by_later_baseline_post": false
+   },
+   {
+    "issue": 17,
+    "ref": "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971695044",
+    "at": "2026-10-03T17:33:06Z",
+    "waiting_min": 7,
+    "ids": [
+     "CMD-WUG1"
+    ],
+    "first_line": "## [WUG → baseline] CMD-WUG1 rev 3: corrected header, normalized by baseline (BD-260)",
+    "head": "ok",
+    "embedded": true,
+    "named_by_later_baseline_post": false
+   }
+  ],
+  "reports_scanned": 166,
+  "rule": "CMD-AO1 rev 2 S8"
+ },
+ "P3_header": "per item in P2_collect (head: ok | hard | missing)",
+ "P5_observe_w1": {
+  "read": true,
+  "since": "2026-10-03T16:36:20.385137Z",
+  "new_events": 50,
+  "turn_events": 26,
+  "infra_only": 24,
+  "tool_calls": 5,
+  "denies": {
+   "A1": 8,
+   "D": 4
+  },
+  "grants": 0,
+  "report_links": 2,
+  "newest": "2026-10-03T16:44:47.696329Z"
+ },
+ "P6_human_queue": {
+  "baseline_head": "51d7d89",
+  "open": [
+   {
+    "q": "Q6",
+    "kind": "D",
+    "task": "WUG 가 확장 venv 에 ga-sdk(github cogito5170/ga-SDK, rlo 0.7.0 포함)를 깔아도 되는지 사용자에게 묻는 중 — WUG 대화창에서 허락 한 줄(예: 'ga-sdk 를 확장 ve"
+   }
+  ]
+ },
+ "signature": {
+  "need_input": [
+   "Action",
+   "W1",
+   "WUG",
+   "baseline"
+  ],
+  "pending": [
+   "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971674744",
+   "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971695044"
+  ],
+  "hard": [
+   "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971674744"
+  ],
+  "w1": 26,
+  "hq": [
+   "Q6"
+  ]
+ },
+ "needs_notify": false
+}
