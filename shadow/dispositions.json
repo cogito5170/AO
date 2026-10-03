@@ -1,0 +1,70 @@
+{
+ "source": "https://github.com/cogito5170/baseline/issues/18#issuecomment-5971248350",
+ "rule": "CMD-AO1 rev 2 S8",
+ "items": [
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5970870115",
+   "disposition": "answered by 5970992180 (R1-R5)"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5970901691",
+   "disposition": "answered by 5970992180 (R1-R5)"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5971045866",
+   "disposition": "answered by 5971210828"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5971195006",
+   "disposition": "answered by the live-probe result on #14"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5971214946",
+   "disposition": "answered by the live-probe result on #14"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5969049195",
+   "disposition": "superseded by the 16:04 report"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/14#issuecomment-5969402405",
+   "disposition": "superseded by the 16:04 report"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/16#issuecomment-5968372967",
+   "disposition": "superseded: GMG4/GMG3 heads re-posted fixed, judged in BD-188"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/16#issuecomment-5968600411",
+   "disposition": "superseded: GMG4/GMG3 heads re-posted fixed, judged in BD-188"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/15#issuecomment-5967210988",
+   "disposition": "no answer needed (header-notice ack)"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/17#issuecomment-5971141887",
+   "disposition": "answered in the same relay post (4 hard header problems named)"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5945675444",
+   "disposition": "no answer needed (informational, 10-02)"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5946007487",
+   "disposition": "no answer needed (informational, 10-02)"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5946179573",
+   "disposition": "no answer needed (informational, 10-02)"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5950007493",
+   "disposition": "no answer needed (informational, 10-02)"
+  },
+  {
+   "ref": "https://github.com/cogito5170/baseline/issues/2#issuecomment-5953288187",
+   "disposition": "no answer needed (informational, 10-02)"
+  }
+ ]
+}
