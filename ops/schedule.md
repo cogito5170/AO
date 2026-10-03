@@ -1,4 +1,4 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-03 21:19 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-03 21:59 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -12,7 +12,7 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T1 | step 2: W1 gets the new files | user (baseline guides) | step 1 | — | — |
 | T1 | step 3: P5 success check (a W1 post reaches amp#1, or a send_message reaches AMP) | AO (read only) | step 2 | — | — |
 | T2 WUG | CMD-WUG1 S6/S10 | WUG | **human: Q6** (the user types it in WUG's chat) | — | none |
-| T3 GMG | CMD-GMG5 rev 2 S4 (calibration from gmg5/refset) | GMG | running ("computing calibration percentiles", 20:53); GMG8 success BD-270 | ~22:00 | none expected |
-| T3 | CMD-GMG9 GMG8 follow-ups: launcher GEMINI_CLI_HOME test (V7), 79.5 vs 3.9 KB/turn residual, merge telemetry block, docstring ([#16](https://github.com/cogito5170/baseline/issues/16#issuecomment-5973390104)) | GMG | after GMG5 (issued 20:56, notified with priority later) | after GMG5 | 0 Gemini requests |
+| T3 GMG | CMD-GMG5 rev 2 verdict ([report](https://github.com/cogito5170/baseline/issues/16#issuecomment-5973868052), P3 ok, D3/D4 met, 0 Gemini requests) | baseline | **the verdict request is held**, pending the user's permission decision | — | — |
+| T3 | CMD-GMG9 GMG8 follow-ups: launcher GEMINI_CLI_HOME test (V7), 79.5 vs 3.9 KB/turn residual, merge telemetry block, docstring ([#16](https://github.com/cogito5170/baseline/issues/16#issuecomment-5973390104)) | GMG | running (GMG started it at 21:57) | ~23:00 | 0 Gemini requests |
 | T3 | CMD-GMG6 D5/D6 smoke | GMG | its own trigger | 00:15 | 1 Gemini request |
 | T4 GA | GA follow-up with recorded agy shapes | AO issues | **human: Q7** (8 Mac runs) | — | agy weekly; never AI credits |
