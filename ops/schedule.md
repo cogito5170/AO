@@ -1,4 +1,18 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 02:34 UTC: POL-1 directives done (BD-286). AO idles on notify; the safety net runs every 3 h at :40
+# Schedule — POL-2 (CMD-AO3, BD-288). Updated 2026-10-04 13:15 UTC
+
+POL-2 compiles prompts from a semantic spec and optimizes them inside the free quota. Its limits (S5):
+- At most 10 Gemini requests a day for optimization.
+- No AI credits and no secrets.
+- No automatic prompt deploys: a changed prompt lands only through a baseline verdict.
+
+| Track | Next step | Owner | Waiting on | ETA (est.) | Quota |
+|---|---|---|---|---|---|
+| POL-2 T1 | CMD-K15 ([#11](https://github.com/cogito5170/baseline/issues/11#issuecomment-5980276473)): prompt-spec/1, a deterministic compiler and checker, rlo.optimize | SDK | — (issued 13:12, notified) | report next | **0** Gemini (fake model only) |
+| POL-2 T1 | verdict request on #18 after P3 | AO, then baseline judges | K15 report | — | — |
+| POL-2 T2 | CMD-GA26: the `ga gemini` plan prompt as a spec (byte-identical base) and `ga optimize gemini-plan` (≥8 labelled cases, ≥3 held out), one real run | AO issues to GA (#12) | **T1 judged a success** | after T1 | ≤10/day. The real run is booked into a window with headroom; 10-05 holds only 4 spare (16/20 reserved for GMG6 + Q10) |
+| POL-2 T3 | session-start, GMG and WUG prompts move to prompt-spec/1 | — | a new POL-2 line from baseline, after T2 | — | — |
+
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 02:34 UTC: POL-1 directives are done (BD-286). Only human items and the GMG6 retry remain
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -29,3 +43,4 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 |---|---|---|---|
 | Gemini API key, free tier, gemini-3-flash-preview (shared by GMG, WUG and every Gemini session) | resets ~00:00 UTC daily | 1 × GMG6 D5/D6 smoke, then the Q10 WUG probe `wug.py d3` (≤15), on 2026-10-05 (~16/20) | 10-04 window exhausted before 00:16; who spent it is not known to AO. The 10-05 plan was posted on #18 and carried in GMG10 and WUG2 |
 | agy weekly per-family | weekly | — | never accept AI credits |
+| POL-2 optimization (a sub-cap of the same Gemini pool) | daily | T1: 0. T2: ≤10/day, booked only into a window with headroom left after the GMG6 and Q10 reservations | CMD-AO3 S5. Above the free tier → HUMAN_QUEUE via baseline |
