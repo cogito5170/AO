@@ -1,4 +1,4 @@
-# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 13:30 UTC
+# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 13:47 UTC
 
 POL-2 cuts token usage with our own prompt language, prompt-spec/1 (baseline PROMPT_SPEC.md, b9e7669). One *.pspec file yields the prompt (verbatim or compact), the checker and a token report. Prompt-quality optimization (variant search) is out (BD-290). Limits (S5):
 - No built-in quota in the SDK or ga.
@@ -8,8 +8,8 @@ POL-2 cuts token usage with our own prompt language, prompt-spec/1 (baseline PRO
 
 | Track | Next step | Owner | Waiting on | ETA (est.) | Model calls |
 |---|---|---|---|---|---|
-| POL-2 T1 | CMD-K15 rev 4 ([#11](https://github.com/cogito5170/baseline/issues/11#issuecomment-5980401785)): build PROMPT_SPEC.md sections 1–3 in rlo-sdk. The floor is section 4: verbatim byte-identical, check 16/16, compact ≥ about 30% (Gemini 646→447, agy 2263→1574). Revs 1–3 are replaced | SDK | — (rev 4 at 13:22, notified) | report next | none |
-| POL-2 T1 | verdict request on #18 after P3 | AO, then baseline | the K15 report | — | — |
+| POL-2 T1 | CMD-K15 rev 4 ([#11](https://github.com/cogito5170/baseline/issues/11#issuecomment-5980401785)): build PROMPT_SPEC.md sections 1–3 in rlo-sdk. The floor is section 4: verbatim byte-identical, check 16/16, compact ≥ about 30% (Gemini 646→447, agy 2263→1574). Revs 1–3 are replaced | SDK | **reported 13:44** ([5980641710](https://github.com/cogito5170/baseline/issues/11#issuecomment-5980641710)): rlo-sdk `6bc76c7` 0.9.0, floor met, P3 clean | done | none |
+| POL-2 T1 | verdict request **posted** ([#18 5980649030](https://github.com/cogito5170/baseline/issues/18#issuecomment-5980649030)), baseline notified | baseline | the verdict, plus a call on grammar proposals P1–P5 | — | — |
 | POL-2 T2 | CMD-GA26: the `ga gemini` plan prompt as a spec. Verbatim is byte-identical; compact is used on follow-up turns (agy included). Tokens per turn before/after on ≥8 turns; the same-spec answer check still passes | AO issues to GA (#12) | **T1 judged a success** | after T1 | none required. An optional real-model comparison runs only under the integrating side's limits |
 | POL-2 T3 | the biggest spenders named from the T2 token report (session-start prompts, directive/report bodies, GMG/WUG prompts) | — | a new POL-2 line from baseline | — | — |
 
