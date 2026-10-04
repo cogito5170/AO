@@ -1,4 +1,4 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:10 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:14 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -11,7 +11,8 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T1 | rlo 0.8.1 to W1, step 1: PIN bump | AMP | **done** (BD-275): amp `1584696`, rlo 0.8.1, probes all ALLOW | done | — |
 | T1 | step 2: a fresh W1 container (archive+unarchive of the same session, or `!` in W1's chat) | user (baseline guides) | **human** | — | — |
 | T1 | step 3: P5 success check (a W1 post reaches amp#1, or a send_message reaches AMP) | AO (read only) | step 2 | — | — |
-| T2 WUG | CMD-WUG1 S6/S10 | WUG | **human: Q6** (the user types it in WUG's chat) | — | none |
+| T2 WUG | CMD-WUG1 rev 3: partial success (BD-276). Q6 done; D3 is HUMAN_QUEUE **Q10** (the user's Mac run) | — | — | — | — |
+| T2 | CMD-WUG2: BD-276 follow-ups (M6 call-count test, commit the mutant script, steps.json `where`) + the exact Q10 command ([#17](https://github.com/cogito5170/baseline/issues/17#issuecomment-5975274485); full text relayed by send_message, since WUG can't read the repo) | WUG | woken 01:13; reports back to AO by send_message | ~1 h | 0 Gemini; the Q10 run ≤3 requests, after the GMG6 reservation |
 | T3 GMG | CMD-GMG5 rev 2: **success** (BD-273) | — | — | done | — |
 | T3 | CMD-GMG10: BD-273 follow-ups ([#16](https://github.com/cogito5170/baseline/issues/16#issuecomment-5975238176)) | GMG | GMG woken 01:07 | ~1 h | 0 Gemini requests |
 | T3 | CMD-GMG9: **success** (BD-274). Baseline judged it under its 60-min rule while Q9 blocks AO; the block B re-pin at `deffd8e` was approved | — | — | done | — |
