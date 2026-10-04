@@ -1,12 +1,12 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:59 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 02:15 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
 | Track | Next step | Owner | Waiting on | ETA (est.) | Quota |
 |---|---|---|---|---|---|
 | T1 | CMD-GR8: **success** (BD-272). Baseline judged it directly because AO's request was blocked | — | — | done | — |
-| T1 | CMD-GR9 verdict ([report](https://github.com/cogito5170/baseline/issues/15#issuecomment-5975551907): ga-SDK `2c68ea2`, P3 ok, D1/D2 met, 478 passed) | baseline | [verdict request 01:55](https://github.com/cogito5170/baseline/issues/18#issuecomment-5975554694) | — | — |
-| T1 | CMD-GA25: pin commit `ff67e8c` held locally (no red push, BD-228). After GR9 is integrated: retarget to `c491e96`, merge, test, push ([hold note](https://github.com/cogito5170/baseline/issues/12#issuecomment-5975409493)) | GA | GR9 | after GR9 | small |
+| T1 | CMD-GR9: **success** (BD-283). ga-SDK head `2c68ea2`; GR has nothing assigned in POL-1 | — | — | done | — |
+| T1 | CMD-GA25 rev 2: merge `2c68ea2`, retarget the pin to rlo `c491e96`, test, push ([go 02:14](https://github.com/cogito5170/baseline/issues/12#issuecomment-5975678215)) | GA | working (notified 02:14) | ~1 h | small |
 | T1 | CMD-K14 S2: **success** (BD-278). rlo-SDK head `c491e96` (0.8.2); SDK has nothing assigned in POL-1 | — | — | done | — |
 | — | Sensor: nothing assigned in POL-1 after SEN2 | — | — | — | — |
 | T1 | rlo 0.8.1 to W1, step 1: PIN bump (amp stays on 0.8.1 until W1 is confirmed unblocked, BD-278) | AMP | **done** (BD-275): amp `1584696`, rlo 0.8.1, probes all ALLOW | done | — |
