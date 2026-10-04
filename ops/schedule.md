@@ -1,4 +1,4 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 00:21 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 00:24 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -15,6 +15,7 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T3 GMG | CMD-GMG5 rev 2: **success** (BD-273) | — | — | done | — |
 | T3 | GMG5 follow-ups (BD-273), to bundle as the next GMG directive after GMG9: (1) a test pinning the log sharpness scale; (2) commit the mood half-split script (.41/.58 → .50/.58); (3) correct the margin wording; (4) optional: re-choose thresholds blind, near .17 / .52 | AO issues | **Q9** (AO write permission), then after GMG9 | after Q9 | 0 Gemini |
 | T3 | CMD-GMG9: **success** (BD-274). Baseline judged it under its 60-min rule while Q9 blocks AO; the block B re-pin at `deffd8e` was approved | — | — | done | — |
+| T3 | BD-274 follow-ups (block B pinned at `deffd8e`, heap logs, residual wording): GMG reports them **done** at `78d9773` (notified AO 00:22) | baseline to note | — | done (by GMG) | — |
 | T3 | CMD-GMG6 D5/D6 smoke | GMG | the 10-04 00:16 run got **429**: the shared key's free tier (20/day, gemini-3-flash) was already spent. Recorded at `905fda3`; GMG booked one retry after 2026-10-05 00:00 UTC | 10-05 00:00+ | **P8: 1 request reserved for this retry.** No other live Gemini calls are scheduled before it |
 | T4 GA | GA follow-up with recorded agy shapes | AO issues | **human: Q7** (8 Mac runs) | — | agy weekly; never AI credits |
 
