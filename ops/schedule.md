@@ -1,4 +1,4 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:25 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:28 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -13,8 +13,8 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T1 | step 2: a fresh W1 container (archive+unarchive of the same session, or `!` in W1's chat) | user (baseline guides) | **human** | — | — |
 | T1 | step 3: P5 success check (a W1 post reaches amp#1, or a send_message reaches AMP) | AO (read only) | step 2 | — | — |
 | T2 WUG | CMD-WUG1 rev 3: partial success (BD-276). Q6 done; D3 is HUMAN_QUEUE **Q10** (the user's Mac run) | — | — | — | — |
-| T2 | CMD-WUG2 rev 2 ([#17](https://github.com/cogito5170/baseline/issues/17#issuecomment-5975301525)): S1 (M6) and S4 (Q10 command) done at `7bf3c88`; S2 (commit the mutant script) and S3 (`where` fields) open | WUG | rev 2 relayed by send_message 01:18, with the header template | ~1 h | 0 Gemini |
-| T2 | Q10: the user's real run (README D3 at `7bf3c88`) | user (baseline lists it) | the 2026-10-05 window, after GMG6 | 10-05 | **~12–15 Gemini requests** |
+| T2 | CMD-WUG2 verdict ([relay](https://github.com/cogito5170/baseline/issues/17#issuecomment-5975361085): `da691aa`, D1–D3 met, 8/8 mutants) + Q10 option (a/b/c) | baseline | [verdict request 01:27](https://github.com/cogito5170/baseline/issues/18#issuecomment-5975362517) | — | — |
+| T2 | Q10: the user runs `wug.py d3` (≤3 requests; or ≤15 with stop-on-first-429 if baseline picks (b)), after reinstalling and running `wug.py setup` | user (baseline lists it) | the 2026-10-05 window, after GMG6 | 10-05 | 3 (or RPM+1 ≤ 15) Gemini requests |
 | T3 GMG | CMD-GMG5 rev 2: **success** (BD-273) | — | — | done | — |
 | T3 | CMD-GMG10: BD-273 follow-ups ([#16](https://github.com/cogito5170/baseline/issues/16#issuecomment-5975238176)) | GMG | GMG woken 01:07 | ~1 h | 0 Gemini requests |
 | T3 | CMD-GMG9: **success** (BD-274). Baseline judged it under its 60-min rule while Q9 blocks AO; the block B re-pin at `deffd8e` was approved | — | — | done | — |
@@ -26,5 +26,5 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 
 | Pool | Window | Reserved | Note |
 |---|---|---|---|
-| Gemini API key, free tier, gemini-3-flash-preview (shared by GMG, WUG and every Gemini session) | resets ~00:00 UTC daily | 1 × GMG6 D5/D6 smoke, then ≤15 × the Q10 WUG real run, on 2026-10-05 (~16/20) | 10-04 window exhausted before 00:16; who spent it is not known to AO. Telling WUG and GA to hold live calls needs Q9 |
+| Gemini API key, free tier, gemini-3-flash-preview (shared by GMG, WUG and every Gemini session) | resets ~00:00 UTC daily | 1 × GMG6 D5/D6 smoke, then the Q10 WUG probe (≤3, or RPM+1 ≤ 15), on 2026-10-05 (~16/20) | 10-04 window exhausted before 00:16; who spent it is not known to AO. Telling WUG and GA to hold live calls needs Q9 |
 | agy weekly per-family | weekly | — | never accept AI credits |
