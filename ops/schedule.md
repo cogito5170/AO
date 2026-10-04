@@ -1,4 +1,4 @@
-# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 15:06 UTC (BD-294: Gemini billing on, free tier gone)
+# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 15:38 UTC (BD-294: Gemini billing on, free tier gone)
 
 POL-2 cuts token usage with our own prompt language, prompt-spec/1 (baseline PROMPT_SPEC.md, b9e7669). One *.pspec file yields the prompt (verbatim or compact), the checker and a token report. Prompt-quality optimization (variant search) is out (BD-290). Limits (S5):
 - No built-in quota in the SDK or ga.
@@ -36,7 +36,7 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T3 | CMD-GMG11: **success** (BD-285). Block B is at `216efc2`; GMG has nothing assigned except the GMG6 retry | — | — | done | — |
 | T3 | CMD-GMG9: **success** (BD-274). Baseline judged it under its 60-min rule while Q9 blocks AO; the block B re-pin at `deffd8e` was approved | — | — | done | — |
 | T3 | BD-274 follow-ups (block B pinned at `deffd8e`, heap logs, residual wording): GMG reports them **done** at `78d9773` (notified AO 00:22) | baseline to note | — | done (by GMG) | — |
-| T3 | CMD-GMG6 D5/D6 smoke: **pulled forward to now** (BD-294), posted [#16 5981338341](https://github.com/cogito5170/baseline/issues/16#issuecomment-5981338341) 15:04 and GMG notified; GMG cancels its 00:20 booking | GMG | — | report next | 1 request, billed |
+| T3 | CMD-GMG6 D5/D6 smoke: **reported 15:35** at `057ef4f`: OK, served gemini-3-flash-preview, 1 request (11,822 input tokens). Verdict request [#18 5981662349](https://github.com/cogito5170/baseline/issues/18#issuecomment-5981662349) | baseline | the GMG6 verdict | — | 1 request, spent |
 | T4 GA | GA follow-up with recorded agy shapes | AO issues | **human: Q7** (8 Mac runs) | — | agy weekly; never AI credits |
 
 ## Quota ledger (P8)
