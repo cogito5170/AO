@@ -26,5 +26,5 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 
 | Pool | Window | Reserved | Note |
 |---|---|---|---|
-| Gemini API key, free tier, gemini-3-flash-preview (shared by GMG, WUG and every Gemini session) | resets ~00:00 UTC daily | 1 × GMG6 D5/D6 smoke, then the Q10 WUG probe `wug.py d3` (≤15), on 2026-10-05 (~16/20) | 10-04 window exhausted before 00:16; who spent it is not known to AO. Telling WUG and GA to hold live calls needs Q9 |
+| Gemini API key, free tier, gemini-3-flash-preview (shared by GMG, WUG and every Gemini session) | resets ~00:00 UTC daily | 1 × GMG6 D5/D6 smoke, then the Q10 WUG probe `wug.py d3` (≤15), on 2026-10-05 (~16/20) | 10-04 window exhausted before 00:16; who spent it is not known to AO. The 10-05 plan was posted on #18 and carried in GMG10 and WUG2 |
 | agy weekly per-family | weekly | — | never accept AI credits |
