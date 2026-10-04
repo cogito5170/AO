@@ -1,4 +1,4 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:20 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:25 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -6,7 +6,8 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 |---|---|---|---|---|---|
 | T1 | CMD-GR8: **success** (BD-272). Baseline judged it directly because AO's request was blocked | — | — | done | — |
 | T1 | CMD-GA25 ga rlo pin 3d2e7d0 → 8131a2b ([#12](https://github.com/cogito5170/baseline/issues/12#issuecomment-5973228433)) | GA | GA woken 01:07 | ~1 h | small |
-| T1 | CMD-K14 S2: rlo uses `extend`, Sensor pin `f1e45b5` ([start note](https://github.com/cogito5170/baseline/issues/11#issuecomment-5975236893)) | SDK | SDK woken 01:07 | ~2 h | heavy; targeted mutations asked |
+| T1 | CMD-K14 S2 verdict ([report](https://github.com/cogito5170/baseline/issues/11#issuecomment-5975352179): rlo 0.8.2 `c491e96`, P3 ok, D1 met; the command hook builds once instead of using `extend`, a deviation) | baseline | verdict request [posted 01:24](https://github.com/cogito5170/baseline/issues/18#issuecomment-5975355918) | — | — |
+| T1 | then: re-point CMD-GA25 to the new rlo integration head (0.8.2) | AO → GA | K14 verdict and integration | after K14 | small |
 | — | Sensor: nothing assigned in POL-1 after SEN2 | — | — | — | — |
 | T1 | rlo 0.8.1 to W1, step 1: PIN bump | AMP | **done** (BD-275): amp `1584696`, rlo 0.8.1, probes all ALLOW | done | — |
 | T1 | step 2: a fresh W1 container (archive+unarchive of the same session, or `!` in W1's chat) | user (baseline guides) | **human** | — | — |
