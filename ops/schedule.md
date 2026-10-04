@@ -1,4 +1,4 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 02:21 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 02:23 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -17,7 +17,7 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T2 | Q10: the user reinstalls the extension, runs `wug.py setup`, then `wug.py d3` (cap 15 in code; stops at the first success after a 429). exit 0 = D3 done | user (baseline lists it) | the 2026-10-05 window, after GMG6 | 10-05 | ≤15 Gemini requests |
 | T3 GMG | CMD-GMG5 rev 2: **success** (BD-273) | — | — | done | — |
 | T3 | CMD-GMG10: **success** (BD-284); the blind thresholds .17/.52 are kept | — | — | done | — |
-| T3 | CMD-GMG11 verdict ([report](https://github.com/cogito5170/baseline/issues/16#issuecomment-5975704485): `7207edd`, block B at `216efc2`, P3 ok) | baseline | [verdict request 02:20](https://github.com/cogito5170/baseline/issues/18#issuecomment-5975706327) | — | — |
+| T3 | CMD-GMG11: **success** (BD-285). Block B is at `216efc2`; GMG has nothing assigned except the GMG6 retry | — | — | done | — |
 | T3 | CMD-GMG9: **success** (BD-274). Baseline judged it under its 60-min rule while Q9 blocks AO; the block B re-pin at `deffd8e` was approved | — | — | done | — |
 | T3 | BD-274 follow-ups (block B pinned at `deffd8e`, heap logs, residual wording): GMG reports them **done** at `78d9773` (notified AO 00:22) | baseline to note | — | done (by GMG) | — |
 | T3 | CMD-GMG6 D5/D6 smoke | GMG | the 10-04 00:16 run got **429**: the shared key's free tier (20/day, gemini-3-flash) was already spent. Recorded at `905fda3`; GMG booked one retry at 2026-10-05 00:20 UTC, on the 7207edd install | 10-05 00:00+ | **P8: 1 request reserved for this retry.** No other live Gemini calls are scheduled before it |
