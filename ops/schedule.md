@@ -1,4 +1,4 @@
-# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 15:38 UTC (BD-294: Gemini billing on, free tier gone)
+# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 16:52 UTC (BD-294: Gemini billing on, free tier gone)
 
 POL-2 cuts token usage with our own prompt language, prompt-spec/1 (baseline PROMPT_SPEC.md, b9e7669). One *.pspec file yields the prompt (verbatim or compact), the checker and a token report. Prompt-quality optimization (variant search) is out (BD-290). Limits (S5):
 - No built-in quota in the SDK or ga.
@@ -10,7 +10,7 @@ POL-2 cuts token usage with our own prompt language, prompt-spec/1 (baseline PRO
 |---|---|---|---|---|---|
 | POL-2 T1 | CMD-K15 rev 4: **success** (BD-292). rlo-sdk `6bc76c7` (0.9.0) integrated; P1–P3 accepted, P4 docs, P5 deferred | — | — | done | none |
 | POL-2 T1 | CMD-K16: **success** (BD-293). rlo-sdk `3e68f21` (0.9.1); `{% use %}` scoping accepted (PROMPT_SPEC §2) | — | — | done | none |
-| POL-2 T2 | CMD-GA26 ([#12](https://github.com/cogito5170/baseline/issues/12#issuecomment-5980705305)): gemini prompts on prompt-spec/1, pinned to rlo `6bc76c7`; verbatim byte-identical, compact on follow-up turns (agy included), token report on ≥8 turns per host, 17-case agreement (16/17 until K16) | GA | reported 14:59 at ga `da8b617` on rlo 0.9.0 (16/17); **returned 15:01** ([#12 5981331645](https://github.com/cogito5170/baseline/issues/12#issuecomment-5981331645)): re-pin to `3e68f21` and show 17/17 | follow-up report | none required |
+| POL-2 T2 | CMD-GA26 ([#12](https://github.com/cogito5170/baseline/issues/12#issuecomment-5980705305)): gemini prompts on prompt-spec/1, pinned to rlo `6bc76c7`; verbatim byte-identical, compact on follow-up turns (agy included), token report on ≥8 turns per host, 17-case agreement (16/17 until K16) | GA → baseline | **rev 2 reported 16:49** at ga `ad5b070` on rlo `3e68f21`: D1–D4 met (17/17, 447/1574, no default daily cap). Verdict request [#18 5982264999](https://github.com/cogito5170/baseline/issues/18#issuecomment-5982264999) | the GA26 verdict | none |
 | POL-2 T2 | K16 sha `3e68f21` posted on #12 ([5980865023](https://github.com/cogito5170/baseline/issues/12#issuecomment-5980865023)) and GA notified 14:09; GA re-pins and shows 17/17 | GA | — | — | — |
 | POL-2 T3 | the biggest spenders from the T2 token report | — | a new POL-2 line from baseline | — | — |
 
