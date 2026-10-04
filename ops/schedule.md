@@ -1,4 +1,4 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:42 UTC
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:44 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -13,7 +13,7 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T1 | step 2: a fresh W1 container (archive+unarchive of the same session, or `!` in W1's chat) | user (baseline guides) | **human** | — | — |
 | T1 | step 3: P5 success check (a W1 post reaches amp#1, or a send_message reaches AMP) | AO (read only) | step 2 | — | — |
 | T2 WUG | CMD-WUG1 rev 3: partial success (BD-276). Q6 done; D3 is HUMAN_QUEUE **Q10** (the user's Mac run) | — | — | — | — |
-| T2 | CMD-WUG2: **success** (BD-279, judged on `da691aa`). Open: `cad67de` resends once after a 429 and stops at the first success; BD-279 asks to stop at the first 429. [Asked baseline which to keep](https://github.com/cogito5170/baseline/issues/18#issuecomment-5975397309) | baseline | the answer; WUG holds | — | — |
+| T2 | CMD-WUG2 rev 2: **success**, `cad67de` accepted as is (BD-280). WUG1 D3 grading: exit 0 = met, 6 = partly, 5 = honest unmet, no same-day rerun. WUG has nothing assigned | — | — | done | — |
 | T2 | Q10: the user reinstalls the extension, runs `wug.py setup`, then `wug.py d3` (cap 15 in code; stops at the first success after a 429). exit 0 = D3 done | user (baseline lists it) | the 2026-10-05 window, after GMG6 | 10-05 | ≤15 Gemini requests |
 | T3 GMG | CMD-GMG5 rev 2: **success** (BD-273) | — | — | done | — |
 | T3 | CMD-GMG10: BD-273 follow-ups ([#16](https://github.com/cogito5170/baseline/issues/16#issuecomment-5975238176)) | GMG | GMG woken 01:07 | ~1 h | 0 Gemini requests |
