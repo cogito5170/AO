@@ -1,4 +1,4 @@
-# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:08 UTC (Q9 cleared: the user granted AO's writes at ~01:04)
+# Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 01:10 UTC
 
 Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and AO's 18:40/19:40 rounds did not run). To avoid a repeat, heavy runs are serialized (P8).
 
@@ -8,8 +8,8 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T1 | CMD-GA25 ga rlo pin 3d2e7d0 → 8131a2b ([#12](https://github.com/cogito5170/baseline/issues/12#issuecomment-5973228433)) | GA | GA woken 01:07 | ~1 h | small |
 | T1 | CMD-K14 S2: rlo uses `extend`, Sensor pin `f1e45b5` ([start note](https://github.com/cogito5170/baseline/issues/11#issuecomment-5975236893)) | SDK | SDK woken 01:07 | ~2 h | heavy; targeted mutations asked |
 | — | Sensor: nothing assigned in POL-1 after SEN2 | — | — | — | — |
-| T1 | rlo 0.8.1 to W1, step 1: PIN bump on amp main and `w1/work` | the user OKs in AMP's chat, then AMP | **human: Q8** | — | — |
-| T1 | step 2: W1 gets the new files | user (baseline guides) | step 1 | — | — |
+| T1 | rlo 0.8.1 to W1, step 1: PIN bump | AMP | **done** (BD-275): amp `1584696`, rlo 0.8.1, probes all ALLOW | done | — |
+| T1 | step 2: a fresh W1 container (archive+unarchive of the same session, or `!` in W1's chat) | user (baseline guides) | **human** | — | — |
 | T1 | step 3: P5 success check (a W1 post reaches amp#1, or a send_message reaches AMP) | AO (read only) | step 2 | — | — |
 | T2 WUG | CMD-WUG1 S6/S10 | WUG | **human: Q6** (the user types it in WUG's chat) | — | none |
 | T3 GMG | CMD-GMG5 rev 2: **success** (BD-273) | — | — | done | — |
