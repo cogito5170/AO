@@ -1,4 +1,4 @@
-# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 15:02 UTC
+# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 15:06 UTC (BD-294: Gemini billing on, free tier gone)
 
 POL-2 cuts token usage with our own prompt language, prompt-spec/1 (baseline PROMPT_SPEC.md, b9e7669). One *.pspec file yields the prompt (verbatim or compact), the checker and a token report. Prompt-quality optimization (variant search) is out (BD-290). Limits (S5):
 - No built-in quota in the SDK or ga.
@@ -30,18 +30,15 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 | T1 | step 3: P5 success check (a W1 post reaches amp#1, or a send_message reaches AMP) | AO (read only) | step 2 | — | — |
 | T2 WUG | CMD-WUG1 rev 3: partial success (BD-276). Q6 done; D3 is HUMAN_QUEUE **Q10** (the user's Mac run) | — | — | — | — |
 | T2 | CMD-WUG2 rev 2: **success**, `cad67de` accepted as is (BD-280). WUG1 D3 grading: exit 0 = met, 6 = partly, 5 = honest unmet, no same-day rerun. WUG has nothing assigned | — | — | done | — |
-| T2 | Q10: the user reinstalls the extension, runs `wug.py setup`, then `wug.py d3` (cap 15 in code; stops at the first success after a 429). exit 0 = D3 done | user (baseline lists it) | the 2026-10-05 window, after GMG6 | 10-05 | ≤15 Gemini requests |
+| T2 | Q10: the user reinstalls the extension, runs `wug.py setup`, then `wug.py d3`. exit 0 = D3 done. **Any time now (BD-294)**, no longer after 00:00 UTC | user (baseline lists it) | human | — | billed; ≤15 requests capped in code |
 | T3 GMG | CMD-GMG5 rev 2: **success** (BD-273) | — | — | done | — |
 | T3 | CMD-GMG10: **success** (BD-284); the blind thresholds .17/.52 are kept | — | — | done | — |
 | T3 | CMD-GMG11: **success** (BD-285). Block B is at `216efc2`; GMG has nothing assigned except the GMG6 retry | — | — | done | — |
 | T3 | CMD-GMG9: **success** (BD-274). Baseline judged it under its 60-min rule while Q9 blocks AO; the block B re-pin at `deffd8e` was approved | — | — | done | — |
 | T3 | BD-274 follow-ups (block B pinned at `deffd8e`, heap logs, residual wording): GMG reports them **done** at `78d9773` (notified AO 00:22) | baseline to note | — | done (by GMG) | — |
-| T3 | CMD-GMG6 D5/D6 smoke | GMG | the 10-04 00:16 run got **429**: the shared key's free tier (20/day, gemini-3-flash) was already spent. Recorded at `905fda3`; GMG booked one retry at 2026-10-05 00:20 UTC, on the 7207edd install | 10-05 00:00+ | **P8: 1 request reserved for this retry.** No other live Gemini calls are scheduled before it |
+| T3 | CMD-GMG6 D5/D6 smoke: **pulled forward to now** (BD-294), posted [#16 5981338341](https://github.com/cogito5170/baseline/issues/16#issuecomment-5981338341) 15:04 and GMG notified; GMG cancels its 00:20 booking | GMG | — | report next | 1 request, billed |
 | T4 GA | GA follow-up with recorded agy shapes | AO issues | **human: Q7** (8 Mac runs) | — | agy weekly; never AI credits |
 
 ## Quota ledger (P8)
 
-| Pool | Window | Reserved | Note |
-|---|---|---|---|
-| Gemini API key, free tier, gemini-3-flash-preview (shared by GMG, WUG and every Gemini session) | resets ~00:00 UTC daily | 1 × GMG6 D5/D6 smoke, then the Q10 WUG probe `wug.py d3` (≤15), on 2026-10-05 (~16/20) | 10-04 window exhausted before 00:16; who spent it is not known to AO. The 10-05 plan was posted on #18 and carried in GMG10 and WUG2 |
-| agy weekly per-family | weekly | — | never accept AI credits |
+BD-294 (14:59 10-04): the user turned on billing for the Gemini key. The free tier (20/day, BD-242) no longer limits scheduling. Cost scales with requests. Spending caps and alerts live in the user's Google Cloud billing, not in any session. AO keeps live runs to what a directive asks for (no retry loops). agy AI credits stay off.
