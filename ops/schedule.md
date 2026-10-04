@@ -1,17 +1,17 @@
-# Schedule — POL-2 (CMD-AO3 rev 2, BD-288/289). Updated 2026-10-04 13:20 UTC
+# Schedule — POL-2 (CMD-AO3 rev 3, BD-288/289/290). Updated 2026-10-04 13:25 UTC
 
-POL-2 compiles prompts from a semantic spec and optimizes them. Its limits (S5, rev 2):
-- No quota is built into the SDK or ga: the caller passes a budget and a Governor if it wants one.
-- Paid billing on our own key stays the user's call (BD-242).
+POL-2 cuts token usage. Prompts are compiled from a semantic spec into a compact form, with a checker built from the same spec and a token report. Prompt-quality optimization (variant search) is out (BD-290). Limits (S5):
+- No built-in quota in the SDK or ga.
+- Paid billing stays the user's call (BD-242).
 - No AI credits and no secrets.
-- No automatic prompt deploys: a changed prompt lands only through a baseline verdict.
+- A changed prompt lands only through a baseline verdict.
 
-| Track | Next step | Owner | Waiting on | ETA (est.) | Quota |
+| Track | Next step | Owner | Waiting on | ETA (est.) | Model calls |
 |---|---|---|---|---|---|
-| POL-2 T1 | CMD-K15 rev 2 ([#11](https://github.com/cogito5170/baseline/issues/11#issuecomment-5980318265)): prompt-spec/1, a deterministic compiler and checker, rlo.optimize (optional budget/Governor, no default cap) | SDK | — (rev 1 at 13:08, rev 2 at 13:14, notified) | report next | none (offline tests, fake model) |
-| POL-2 T1 | verdict request on #18 after P3 | AO, then baseline judges | K15 report | — | — |
-| POL-2 T2 | CMD-GA26: the `ga gemini` plan prompt as a spec (byte-identical base) and `ga optimize gemini-plan` (≥8 labelled cases, ≥3 held out), one real run | AO issues to GA (#12) | **T1 judged a success** | after T1 | the budget GA passes to `ga optimize`. On our own free key, AO books the real run into a window that does not take GMG6's or Q10's share on 10-05 (16/20 reserved) |
-| POL-2 T3 | session-start, GMG and WUG prompts move to prompt-spec/1 | — | a new POL-2 line from baseline, after T2 | — | — |
+| POL-2 T1 | CMD-K15 rev 3 ([#11](https://github.com/cogito5170/baseline/issues/11#issuecomment-5980354888)): prompt-spec/1 with static/per-turn marks, verbatim and compact modes, a same-spec checker and a token report. Rev 1 and rev 2 are replaced; optimizer code stays off the integration branch | SDK | — (rev 3 at 13:17, notified) | report next | none |
+| POL-2 T1 | verdict request on #18 after P3 | AO, then baseline | the K15 report | — | — |
+| POL-2 T2 | CMD-GA26: the `ga gemini` plan prompt as a spec. Verbatim is byte-identical; compact is used on follow-up turns (agy included). Tokens per turn before/after on ≥8 turns; the same-spec answer check still passes | AO issues to GA (#12) | **T1 judged a success** | after T1 | none required. An optional real-model comparison runs only under the integrating side's limits |
+| POL-2 T3 | the biggest spenders named from the T2 token report (session-start prompts, directive/report bodies, GMG/WUG prompts) | — | a new POL-2 line from baseline | — | — |
 
 # Schedule — POL-1 (CMD-AO2, BD-263). Updated 2026-10-04 02:34 UTC: POL-1 directives are done (BD-286). Only human items and the GMG6 retry remain
 
@@ -44,4 +44,3 @@ Note: the account hit its Claude session limit 18:24–20:10 UTC (GMG, AMP, and 
 |---|---|---|---|
 | Gemini API key, free tier, gemini-3-flash-preview (shared by GMG, WUG and every Gemini session) | resets ~00:00 UTC daily | 1 × GMG6 D5/D6 smoke, then the Q10 WUG probe `wug.py d3` (≤15), on 2026-10-05 (~16/20) | 10-04 window exhausted before 00:16; who spent it is not known to AO. The 10-05 plan was posted on #18 and carried in GMG10 and WUG2 |
 | agy weekly per-family | weekly | — | never accept AI credits |
-| POL-2 T2 real run (same Gemini pool, when run on our own key) | daily | T1: none. T2: the budget passed on the command line; booked so it does not take GMG6's or Q10's share | CMD-AO3 rev 2 S5: no built-in cap. Paid billing is the user's call via baseline |
