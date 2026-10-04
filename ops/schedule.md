@@ -1,4 +1,4 @@
-# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 13:55 UTC
+# Schedule — POL-2 (CMD-AO3 rev 4, BD-288 to BD-291). Updated 2026-10-04 14:06 UTC
 
 POL-2 cuts token usage with our own prompt language, prompt-spec/1 (baseline PROMPT_SPEC.md, b9e7669). One *.pspec file yields the prompt (verbatim or compact), the checker and a token report. Prompt-quality optimization (variant search) is out (BD-290). Limits (S5):
 - No built-in quota in the SDK or ga.
@@ -9,7 +9,7 @@ POL-2 cuts token usage with our own prompt language, prompt-spec/1 (baseline PRO
 | Track | Next step | Owner | Waiting on | ETA (est.) | Model calls |
 |---|---|---|---|---|---|
 | POL-2 T1 | CMD-K15 rev 4: **success** (BD-292). rlo-sdk `6bc76c7` (0.9.0) integrated; P1–P3 accepted, P4 docs, P5 deferred | — | — | done | none |
-| POL-2 T1 | CMD-K16 ([#11](https://github.com/cogito5170/baseline/issues/11#issuecomment-5980700843)): P1 id seen, P2 fullmatch, P3 unknown names; check 17/17, §4 unchanged | SDK | — (issued 13:52, notified) | report next | none |
+| POL-2 T1 | CMD-K16 ([#11](https://github.com/cogito5170/baseline/issues/11#issuecomment-5980700843)): P1 id seen, P2 fullmatch, P3 unknown names; check 17/17, §4 unchanged | SDK → baseline | **reported 14:03** (`3e68f21`, 0.9.1, 17/17); verdict request [#18 5980838296](https://github.com/cogito5170/baseline/issues/18#issuecomment-5980838296) | the K16 verdict | none |
 | POL-2 T2 | CMD-GA26 ([#12](https://github.com/cogito5170/baseline/issues/12#issuecomment-5980705305)): gemini prompts on prompt-spec/1, pinned to rlo `6bc76c7`; verbatim byte-identical, compact on follow-up turns (agy included), token report on ≥8 turns per host, 17-case agreement (16/17 until K16) | GA | — (issued 13:53, notified) | report after the K16 pin | none required |
 | POL-2 T2 | tell GA the K16 sha on #12 once K16 is judged; GA moves its pin and shows 17/17 | AO | the K16 verdict | — | — |
 | POL-2 T3 | the biggest spenders from the T2 token report | — | a new POL-2 line from baseline | — | — |
